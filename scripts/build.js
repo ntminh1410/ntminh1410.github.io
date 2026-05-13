@@ -208,6 +208,15 @@ async function buildContact(data) {
     path: '/contact/',
   });
   await writePage('contact/index.html', html);
+
+  const thanksHtml = await renderPage({
+    template: 'contact-thanks',
+    ctx: data,
+    title: `Message received · ${data.site.title}`,
+    description: 'Your message has been received.',
+    path: '/contact/thanks/',
+  });
+  await writePage('contact/thanks/index.html', thanksHtml);
 }
 
 async function build404(data) {

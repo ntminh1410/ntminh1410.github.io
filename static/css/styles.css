@@ -953,11 +953,6 @@ html[data-theme="dark"] .theme-toggle .icon--moon { display: block; }
   border-color: var(--accent);
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);
 }
-.contact-form__honeypot {
-  position: absolute !important;
-  left: -9999px !important;
-  width: 1px; height: 1px; opacity: 0; pointer-events: none;
-}
 .contact-form__actions {
   display: flex;
   align-items: center;
@@ -1068,6 +1063,41 @@ html[data-theme="dark"] .contact-form__feedback--error { color: #FCA5A5; }
 }
 .contact-alt__item svg {
   flex-shrink: 0;
+}
+
+/* -------- Thanks page -------- */
+.thanks-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+  padding: var(--space-8) var(--space-4);
+}
+.thanks-page__icon {
+  display: inline-flex;
+  width: 72px;
+  height: 72px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+.thanks-page__title {
+  font-size: clamp(28px, 5vw, 36px);
+  font-weight: 700;
+  letter-spacing: -0.022em;
+}
+.thanks-page__desc {
+  color: var(--text-muted);
+  max-width: 460px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.thanks-page__actions {
+  margin-top: 8px;
 }
 
 /* -------- Empty state -------- */

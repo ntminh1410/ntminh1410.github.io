@@ -92,15 +92,6 @@
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-
-      // Honeypot — if filled, silently "succeed" without actually sending
-      const honeypot = form.querySelector('input[name="botcheck"]');
-      if (honeypot && honeypot.checked) {
-        showFeedback('success', "Thanks! I'll get back to you soon.");
-        form.reset();
-        return;
-      }
-
       setBusy(true);
       showFeedback('', '');
 
@@ -109,6 +100,8 @@
       const userSubject = data.get('user_subject');
       if (userSubject) data.set('subject', userSubject);
       data.delete('user_subject');
+      // Strip the "redirect" hint — only relevant if browser submits natively
+      data.delete('redirect');
 
       try {
         const res = await fetch(form.action, {
@@ -118,14 +111,14 @@
         });
         const json = await res.json().catch(() => ({}));
         if (res.ok && json.success) {
-          showFeedback('success', json.message || "Thanks! Your message is on its way.");
-          form.reset();
-        } else {
-          showFeedback('error', json.message || `Something went wrong (HTTP ${res.status}). Try emailing me directly.`);
+          // Hop over to the thanks page
+          window.location.href = '/contact/thanks/';
+          return;
         }
+        showFeedback('error', json.message || `Something went wrong (HTTP ${res.status}). Try emailing me directly.`);
+        setBusy(false);
       } catch (err) {
         showFeedback('error', `Network error: ${err.message}. Try emailing me directly.`);
-      } finally {
         setBusy(false);
       }
     });

@@ -14,7 +14,7 @@
     <input type="hidden" name="access_key" value="{{contact.web3forms_access_key}}">
     <input type="hidden" name="from_name" value="{{site.title}} — Contact form">
     <input type="hidden" name="subject" value="New message from {{site.title}}">
-    <input type="checkbox" name="botcheck" class="contact-form__honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <input type="hidden" name="redirect" value="{{site.url}}/contact/thanks/">
 
     <div class="contact-form__row">
       <label class="contact-form__label">
