@@ -1,0 +1,52 @@
+{{> _profile}}
+
+{{> _newsletter}}
+
+{{#if tags.length}}
+<nav class="tag-row" aria-label="Filter writings by tag">
+  <a href="/writings/" class="tag-row__item tag-row__item--active">All</a>
+  {{#each tags}}
+    {{#if visible_in_filter}}
+      <a href="/writings/tag/{{slug}}/" class="tag-row__item" style="--tag-color: {{color}};">{{name}}</a>
+    {{/if}}
+  {{/each}}
+</nav>
+{{/if}}
+
+<section class="section">
+  <header class="section-header">
+    <span class="section-header__icon" aria-hidden="true">🌵</span>
+    <h2 class="section-header__title">Writings</h2>
+  </header>
+  {{{home_writings_html}}}
+  {{#if has_more_writings}}
+    <div class="cta-row">
+      <a class="btn btn--accent" href="/writings/">All writings</a>
+    </div>
+  {{/if}}
+</section>
+
+{{#if recommendations.length}}
+<section class="section">
+  <header class="section-header">
+    <span class="section-header__icon" aria-hidden="true">⭐</span>
+    <h2 class="section-header__title">Recommendations</h2>
+  </header>
+  {{{recommendations_html}}}
+</section>
+{{/if}}
+
+{{#if projects.length}}
+<section class="section">
+  <header class="section-header">
+    <span class="section-header__icon" aria-hidden="true">🎯</span>
+    <h2 class="section-header__title">Projects</h2>
+  </header>
+  {{{home_projects_html}}}
+  {{#if has_more_projects}}
+    <div class="cta-row">
+      <a class="btn btn--accent" href="/projects/">All projects</a>
+    </div>
+  {{/if}}
+</section>
+{{/if}}

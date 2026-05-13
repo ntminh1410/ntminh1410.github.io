@@ -1,0 +1,20 @@
+{
+  "name": "vuongtung",
+  "version": "1.0.0",
+  "description": "Tung's personal portfolio — chat-bubble layout, sourced from Google Sheets, built static, deployed to GitHub Pages",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "build:offline": "USE_FALLBACK=1 node scripts/build.js",
+    "serve": "node scripts/serve.js",
+    "dev": "npm run build:offline && npm run serve"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "marked": "^12.0.0",
+    "papaparse": "^5.4.1"
+  }
+}

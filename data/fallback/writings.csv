@@ -1,0 +1,9 @@
+id,status,publish_date,year,icon,title,slug,tags,summary,body_md,featured_image,access,featured,author,seo_title,seo_description
+w001,published,2024-02-20,2024.0,🍎,Impact of color psychology in web design,impact-of-color-psychology,"design,color,ux","Color is one of the strongest non-verbal cues we can use on the web — it shapes mood, builds trust, and guides the eye long before a visitor reads a single word.","# Full markdown body here
+
+More content...",,public,FALSE,Tony Carter,Impact of color psychology in web design | Tony Carter,How color shapes mood and trust in user interfaces.
+w002,published,2024-02-20,2024.0,🍒,Evolution of responsive web design,evolution-of-responsive-web-design,"design,responsive","From fluid grids to container queries, responsive design has matured into a discipline of its own.","# Evolution of responsive web design
+
+Full body...",,public,FALSE,Tony Carter,,
+w003,published,2024-02-09,2024.0,🌬️,The power of whitespace in web design,power-of-whitespace,"design,ux",Whitespace is not empty — it is breathing room.,,,paid,TRUE,Tony Carter,,
+w004,draft,2024-03-10,2024.0,🅰️,Modern typography trends in web layouts,typography-trends-2024,"design,typography","Variable fonts, fluid type, and a return to expressive headlines.",,,public,FALSE,Tony Carter,,

@@ -1,0 +1,5 @@
+id,status,name,category,logo_emoji,logo_url,brand_color,url,description,featured,sort_order
+r001,published,Figma,Design,F,,#1E1E1E,https://www.figma.com,Figma is the leading collaborative design tool for building meaningful products.,TRUE,1.0
+r002,published,Linear,Productivity,L,,#5E6AD2,https://linear.app,"Linear streamlines issues, sprints, and product roadmaps.",FALSE,2.0
+r003,published,Lemon Squeezy,Business,🍋,,#FFDD34,https://www.lemonsqueezy.com,Sell digital products and SaaS the easy way. Merchant of record handles tax compliance.,FALSE,3.0
+r004,published,GitHub,Dev,G,,#1E1E1E,https://github.com,Where 100M+ developers shape the future of software.,FALSE,4.0

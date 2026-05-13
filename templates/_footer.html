@@ -1,0 +1,15 @@
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    {{#if site.footer_copyright}}<p class="site-footer__copy">{{site.footer_copyright}}</p>{{/if}}
+    {{#if nav.footer.length}}
+      <nav class="site-footer__nav" aria-label="Footer">
+        {{#each nav.footer}}
+          <a href="{{url}}" class="site-footer__link"{{#if open_in_new_tab}} target="_blank" rel="noopener"{{/if}}>{{label}}</a>
+        {{/each}}
+      </nav>
+    {{/if}}
+    <button class="back-to-top" type="button" data-back-to-top aria-label="Back to top">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"></path></svg>
+    </button>
+  </div>
+</footer>

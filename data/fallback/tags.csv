@@ -1,0 +1,10 @@
+slug,name,description,color,visible_in_filter,sort_order
+design,Design,Articles about visual and product design.,#0084FF,TRUE,1.0
+tools,Tools,Software and apps I use and recommend.,#10B981,TRUE,2.0
+process,Process,How I work — methodology and rituals.,#F59E0B,TRUE,3.0
+lifehack,Lifehack,Tips that make life smoother.,#EF4444,TRUE,4.0
+technologies,Technologies,"Tech stacks, libraries, frameworks.",#8B5CF6,TRUE,5.0
+motivation,Motivation,Things that keep me going.,#EC4899,TRUE,6.0
+ui-ux,UI/UX,User interface and user experience.,#06B6D4,TRUE,7.0
+inspiration,Inspiration,People and work that inspire me.,#84CC16,TRUE,8.0
+interview,Interview,Conversations with interesting people.,#6366F1,TRUE,9.0

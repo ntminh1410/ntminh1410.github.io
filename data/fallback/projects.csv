@@ -1,0 +1,5 @@
+id,status,publish_date,year,title,slug,description,image_url,image_alt,gradient_from,gradient_to,project_url,github_url,tech,featured,sort_order
+p001,published,2024-02-26,2024.0,OnFlow,onflow,"A minimal, chat-like layout designed for personal blogs and portfolios.",,,#2196FF,#4FB1FF,https://onflow.example.com,,"Ghost,Handlebars,CSS",TRUE,1.0
+p002,published,2024-01-30,2024.0,Thesis,thesis,"A modern, minimalist theme for thoughtful personal blogs.",,,#4ECDC4,#71D8D0,,,"Ghost,Handlebars",FALSE,2.0
+p003,published,2024-01-02,2024.0,Resume,resume,"A clean, single-page CV layout for engineers and designers.",,,#F4827A,#F8A39D,,https://github.com/example/resume,"HTML,CSS",FALSE,3.0
+p004,draft,2024-01-01,2024.0,Feed,feed,Coming soon — a focused RSS reader for indie writers.,,,#4EC5B9,#65D6C9,,,,FALSE,4.0

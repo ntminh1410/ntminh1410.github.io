@@ -1,0 +1,17 @@
+{
+  "$schema": "Mỗi entry trỏ tới một tab trong Google Sheet. Có 2 cách:",
+  "$schema_option_a": "1) gid: <số> — sẽ build URL theo publishedBase với gid đó",
+  "$schema_option_b": "2) url: <full URL> — dùng URL tuỳ ý, ưu tiên hơn gid",
+  "$schema_fallback": "Nếu fetch lỗi, build sẽ fallback sang data/fallback/<tab>.csv",
+
+  "publishedBase": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTdmVNmNEOUk0gK8R2fE47WFDsJYJnq0sT-sLI9Af-XvQzC_HnipWWcKwuQvBUBkgmuR0unlriv86mE/pub",
+
+  "tabs": {
+    "settings": { "gid": null },
+    "writings": { "gid": null },
+    "projects": { "gid": null },
+    "recommendations": { "gid": null },
+    "tags": { "gid": null },
+    "navigation": { "gid": null }
+  }
+}

@@ -1,0 +1,12 @@
+{{#if newsletter.enabled}}
+<section id="subscribe" class="newsletter">
+  <div class="newsletter__title">{{newsletter.title}}</div>
+  {{#if newsletter.desc}}<p class="newsletter__desc">{{newsletter.desc}}</p>{{/if}}
+  <form class="newsletter__form" method="post"{{#if newsletter.endpoint}} action="{{newsletter.endpoint}}"{{/if}}>
+    <input class="newsletter__input" type="email" name="email" placeholder="your@email.com" required autocomplete="email" aria-label="Email">
+    <button class="newsletter__submit" type="submit" aria-label="Subscribe">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+    </button>
+  </form>
+</section>
+{{/if}}

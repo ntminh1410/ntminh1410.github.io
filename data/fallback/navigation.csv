@@ -1,0 +1,9 @@
+label,url,location,sort_order,open_in_new_tab,parent
+Home,/,primary,1.0,FALSE,
+Writings,/writings/,primary,2.0,FALSE,
+Projects,/projects/,primary,3.0,FALSE,
+Members,/membership/,primary,4.0,FALSE,
+About,/about/,secondary,1.0,FALSE,
+Contact,/contact/,secondary,2.0,FALSE,
+RSS,/rss/,footer,1.0,TRUE,
+GitHub,https://github.com/yourhandle,footer,2.0,TRUE,

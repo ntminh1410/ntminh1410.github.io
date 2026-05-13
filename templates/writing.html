@@ -1,0 +1,44 @@
+<article class="writing-detail">
+  <header class="writing-detail__header">
+    {{#if writing.icon}}<div class="writing-detail__icon" aria-hidden="true">{{writing.icon}}</div>{{/if}}
+    <h1 class="writing-detail__title">{{writing.title}}</h1>
+    <div class="writing-detail__meta">
+      <time datetime="{{writing.publish_date}}">{{writing.date_display}}</time>
+      {{#if writing.author}}<span>·</span><span>{{writing.author}}</span>{{/if}}
+    </div>
+    {{#if writing.tags.length}}
+      <div class="writing-detail__tags">
+        {{#each writing.tags}}
+          <a href="/writings/tag/{{slug}}/" class="tag-pill" style="--tag-color: {{color}};">{{name}}</a>
+        {{/each}}
+      </div>
+    {{/if}}
+  </header>
+
+  {{#if writing.featured_image}}
+    <figure class="writing-detail__cover">
+      <img src="{{writing.featured_image}}" alt="{{writing.title}}" loading="eager">
+    </figure>
+  {{/if}}
+
+  {{#if writing.summary}}
+    <p class="writing-detail__lede">{{writing.summary}}</p>
+  {{/if}}
+
+  <div class="writing-detail__body prose">
+    {{{writing.body_html}}}
+  </div>
+
+  {{#if writing.access_paid}}
+    <div class="paywall-card">
+      <h3>This post is for members only</h3>
+      <p>Become a member to read the rest of this post and access other members-only writings.</p>
+    </div>
+  {{/if}}
+
+  <nav class="writing-detail__nav" aria-label="More writings">
+    <a class="btn btn--ghost" href="/writings/">← All writings</a>
+  </nav>
+</article>
+
+{{> _newsletter}}

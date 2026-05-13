@@ -1,0 +1,10 @@
+<aside class="side-rail" aria-label="Quick actions">
+  <a href="/writings/" class="side-rail__btn" aria-label="Archive">
+    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8v13H3V8M1 3h22v5H1zM10 12h4"></path></svg>
+  </a>
+  {{#if newsletter.enabled}}
+    <a href="#subscribe" class="side-rail__btn" aria-label="Subscribe">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+    </a>
+  {{/if}}
+</aside>

@@ -1,0 +1,31 @@
+<div class="writings-list">
+  {{#each year_groups}}
+    <div class="writings-year-group">
+      <div class="writings-year-label" aria-hidden="true">{{year}}</div>
+      <div class="writings-year-items">
+        {{#each items}}
+          <article class="writing-row{{#if featured}} writing-row--featured{{/if}}">
+            <a class="writing-row__link" href="/writings/{{slug}}/">
+              <div class="writing-row__head">
+                {{#if icon}}<span class="writing-row__icon" aria-hidden="true">{{icon}}</span>{{/if}}
+                <h3 class="writing-row__title">{{title}}</h3>
+                {{#if is_paid}}<span class="lock-pill" aria-label="Members only">🔒</span>{{/if}}
+              </div>
+              <div class="writing-row__bubble">
+                {{#if summary}}<p class="writing-row__summary">{{summary}}</p>{{/if}}
+                <div class="writing-row__meta">
+                  <time datetime="{{publish_date}}">{{date_display}}</time>
+                  {{#if tags.length}}
+                    <span class="writing-row__tags">
+                      {{#each tags}}<span class="tag-pill" style="--tag-color: {{color}};">{{name}}</span>{{/each}}
+                    </span>
+                  {{/if}}
+                </div>
+              </div>
+            </a>
+          </article>
+        {{/each}}
+      </div>
+    </div>
+  {{/each}}
+</div>

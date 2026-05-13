@@ -1,0 +1,40 @@
+<article class="project-detail">
+  <header class="project-detail__header">
+    <h1 class="project-detail__title">{{project.title}}</h1>
+    <div class="project-detail__meta">
+      {{#if project.date_display}}<time datetime="{{project.publish_date}}">{{project.date_display}}</time>{{/if}}
+      {{#if project.tech.length}}
+        <span class="project-detail__tech">
+          {{#each project.tech}}<span class="tech-chip">{{this}}</span>{{/each}}
+        </span>
+      {{/if}}
+    </div>
+  </header>
+
+  <div class="project-detail__hero" style="background: linear-gradient(135deg, {{project.gradient_from}}, {{project.gradient_to}});">
+    {{#if project.image_url}}
+      <img src="{{project.image_url}}" alt="{{project.image_alt}}" loading="eager">
+    {{else}}
+      {{#if project.is_coming_soon}}<span class="project-card__coming">Coming Soon</span>{{/if}}
+    {{/if}}
+  </div>
+
+  <div class="project-detail__body prose">
+    <p>{{project.description}}</p>
+  </div>
+
+  <div class="project-detail__actions">
+    {{#if project.project_url}}
+      <a class="btn btn--accent" href="{{project.project_url}}" target="_blank" rel="noopener">Visit project ↗</a>
+    {{/if}}
+    {{#if project.github_url}}
+      <a class="btn btn--ghost" href="{{project.github_url}}" target="_blank" rel="noopener">View source ↗</a>
+    {{/if}}
+  </div>
+
+  <nav class="writing-detail__nav" aria-label="More projects">
+    <a class="btn btn--ghost" href="/projects/">← All projects</a>
+  </nav>
+</article>
+
+{{> _newsletter}}

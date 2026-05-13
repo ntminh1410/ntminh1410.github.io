@@ -1,0 +1,21 @@
+<div class="recommendations">
+  {{#each recommendations}}
+    <article class="rec-row">
+      <a class="rec-row__link" href="{{url}}" target="_blank" rel="noopener">
+        <div class="rec-row__head">
+          <span class="rec-row__logo" style="background: {{brand_color}};" aria-hidden="true">
+            {{#if logo_url}}<img src="{{logo_url}}" alt="">{{else}}{{logo_emoji}}{{/if}}
+          </span>
+          <span class="rec-row__name">{{name}}</span>
+          {{#if category}}<span class="rec-row__category">{{category}}</span>{{/if}}
+          <span class="ext-arrow" aria-hidden="true">↗</span>
+        </div>
+        {{#if description}}
+          <div class="rec-row__bubble">
+            <p>{{description}}</p>
+          </div>
+        {{/if}}
+      </a>
+    </article>
+  {{/each}}
+</div>

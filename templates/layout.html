@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{{> _head}}
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  {{> _header}}
+  {{> _side_rail}}
+  <main id="main" class="container">
+    {{{page_content}}}
+  </main>
+  {{> _footer}}
+  <script src="/static/js/main.js" defer></script>
+  {{#if site.analytics_provider}}
+    {{#if site.analytics_site_id}}
+      <!-- analytics: {{site.analytics_provider}} ({{site.analytics_site_id}}) -->
+    {{/if}}
+  {{/if}}
+</body>
+</html>

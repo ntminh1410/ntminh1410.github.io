@@ -1,0 +1,15 @@
+<section class="profile">
+  {{#if profile.avatar_url}}
+    <img class="profile__avatar" src="{{profile.avatar_url}}" alt="{{profile.name}}" loading="eager" width="96" height="96">
+  {{else}}
+    <div class="profile__avatar profile__avatar--placeholder" aria-hidden="true">{{profile.name_initial}}</div>
+  {{/if}}
+  <h1 class="profile__name">{{profile.name}}</h1>
+  {{#if profile.tagline}}<p class="profile__tagline">{{profile.tagline}}</p>{{/if}}
+  {{#if profile.bio}}<p class="profile__bio">{{profile.bio}}</p>{{/if}}
+  {{#if profile.socials.length}}
+    <ul class="profile__socials" aria-label="Social links">
+      {{{profile.socials_html}}}
+    </ul>
+  {{/if}}
+</section>

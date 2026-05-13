@@ -1,0 +1,24 @@
+key,value,notes
+site_title,Tony Carter,Tên hiển thị trên header + browser tab
+site_description,Personal portfolio of a passionate web designer.,"Meta description, SEO"
+site_url,https://yourusername.github.io,"URL chính, không có dấu / cuối"
+accent_color,#0084FF,"Mã hex, dùng cho button + link nhấn"
+color_scheme_default,system,light / dark / system
+profile_name,Tony Carter,Tên hiển thị ở trang chủ
+profile_tagline,Web designer · Ho Chi Minh City,Dòng nhỏ dưới tên (optional)
+profile_bio,"As a passionate web designer, I am thrilled to share my newsletter, recommendations, latest projects, and creative endeavors with you 🚀",Đoạn giới thiệu chính
+profile_avatar_url,https://example.com/avatar.jpg,URL ảnh đại diện hình tròn
+social_x,https://x.com/yourhandle,Để trống nếu không dùng
+social_facebook,https://facebook.com/yourpage,
+social_instagram,https://instagram.com/yourhandle,
+social_linkedin,,Để trống nếu không dùng
+social_github,https://github.com/yourhandle,
+newsletter_enabled,TRUE,TRUE / FALSE
+newsletter_provider,buttondown,buttondown / mailchimp / substack / formspree
+newsletter_endpoint,https://buttondown.email/api/emails/embed-subscribe/yourname,URL nhận form submit
+newsletter_title,Subscribe to Newsletter,Tiêu đề form đăng ký
+newsletter_desc,Join me on this exciting journey as we explore the boundless world of web design together.,Mô tả dưới tiêu đề form
+footer_copyright,© 2026 Tony Carter — built with care,Dòng cuối footer
+meta_og_image,https://example.com/og-cover.jpg,Ảnh 1200x630 hiện khi share link
+analytics_provider,,plausible / umami / ga4 / (trống)
+analytics_site_id,,ID hoặc domain trên Plausible/Umami
