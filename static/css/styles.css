@@ -379,26 +379,32 @@ html[data-theme="dark"] .theme-toggle .icon--moon { display: block; }
   gap: var(--space-5);
 }
 .writings-year-group {
-  position: relative;
-  padding-right: 32px;
+  display: grid;
+  grid-template-columns: 1fr 22px;
+  gap: 10px;
+  align-items: start;
+}
+.writings-year-items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-width: 0;
 }
 .writings-year-label {
-  position: absolute;
-  right: 0;
-  top: 14px;
+  position: sticky;
+  top: calc(var(--header-height) + 12px);
+  justify-self: end;
   writing-mode: vertical-rl;
   transform: rotate(180deg);
+  height: max-content;
+  padding: 4px 0;
   font-size: 11px;
   font-weight: 600;
   color: var(--text-muted);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   user-select: none;
-}
-.writings-year-items {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
+  pointer-events: none;
 }
 
 .writing-row {
