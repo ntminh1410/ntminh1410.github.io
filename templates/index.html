@@ -17,7 +17,7 @@
     <h2 class="section-header__title">Writings</h2>
   </header>
   {{{home_writings_html}}}
-  {{#if has_more_writings}}
+  {{#if writings.length}}
     <div class="cta-row">
       <a class="btn btn--accent" href="/writings/">All writings</a>
     </div>
@@ -31,11 +31,9 @@
     <h2 class="section-header__title">Projects</h2>
   </header>
   {{{home_projects_html}}}
-  {{#if has_more_projects}}
-    <div class="cta-row">
-      <a class="btn btn--accent" href="/projects/">All projects</a>
-    </div>
-  {{/if}}
+  <div class="cta-row">
+    <a class="btn btn--accent" href="/projects/">All projects</a>
+  </div>
 </section>
 {{/if}}
 

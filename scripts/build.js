@@ -14,7 +14,7 @@ const STATIC_SRC = new URL('../static/', import.meta.url);
 const STATIC_DST = new URL('../dist/static/', import.meta.url);
 const CONFIG_PATH = new URL('../config/sources.json', import.meta.url);
 
-const HOME_WRITINGS_LIMIT = 6;
+const HOME_WRITINGS_LIMIT = 3;
 const HOME_PROJECTS_LIMIT = 3;
 
 const SOCIAL_ICONS = {
@@ -77,10 +77,12 @@ async function renderPage({ template, ctx, title, description, path, content_par
 }
 
 async function buildHome(data) {
+  // Writings are already sorted newest-first in data.js
   const homeWritings = data.writings.slice(0, HOME_WRITINGS_LIMIT);
-  const homeProjects = data.projects.filter(p => p.featured).concat(
-    data.projects.filter(p => !p.featured)
-  ).slice(0, HOME_PROJECTS_LIMIT);
+  // For home, override the /projects/ sort_order and show the 3 most recent by date
+  const homeProjects = [...data.projects]
+    .sort((a, b) => String(b.publish_date).localeCompare(String(a.publish_date)))
+    .slice(0, HOME_PROJECTS_LIMIT);
 
   const home_writings_html = await renderFile('_writings_list', {
     year_groups: groupWritingsByYear(homeWritings),
