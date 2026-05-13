@@ -19,6 +19,9 @@ newsletter_endpoint,https://buttondown.email/api/emails/embed-subscribe/yourname
 newsletter_title,Subscribe to Newsletter,Tiêu đề form đăng ký
 newsletter_desc,Join me on this exciting journey as we explore the boundless world of web design together.,Mô tả dưới tiêu đề form
 footer_copyright,© 2026 Tony Carter — built with care,Dòng cuối footer
+contact_email,hello@example.com,Email liên hệ hiện ở trang /contact/. Để trống để ẩn.
+contact_intro,"I'm always open to interesting conversations — work, collaborations, or just to say hi.",Đoạn intro ngắn trên trang Contact. Hỗ trợ Markdown.
+contact_form_endpoint,,"URL Formspree/Web3Forms/getform... để hiện form. Để trống = chỉ hiện email + social."
 meta_og_image,https://example.com/og-cover.jpg,Ảnh 1200x630 hiện khi share link
 analytics_provider,,plausible / umami / ga4 / (trống)
 analytics_site_id,,ID hoặc domain trên Plausible/Umami

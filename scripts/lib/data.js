@@ -154,10 +154,17 @@ export async function loadAllData(config, { forceFallback = false } = {}) {
     desc: settings.newsletter_desc || '',
   };
 
+  const contact = {
+    email: settings.contact_email || '',
+    intro: settings.contact_intro || '',
+    form_endpoint: settings.contact_form_endpoint || '',
+  };
+
   return {
     site,
     profile,
     newsletter,
+    contact,
     nav,
     tags,
     writings: writingsPublished,

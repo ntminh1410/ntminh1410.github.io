@@ -32,6 +32,22 @@ function socialsHtml(socials) {
   }).join('');
 }
 
+function escapeAttr(s) {
+  return String(s ?? '').replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+function contactSocialsHtml(socials) {
+  return socials.map(s => {
+    const icon = SOCIAL_ICONS[s.type] || `<span>${s.label[0]}</span>`;
+    return `<a class="contact-method" href="${escapeAttr(s.url)}" target="_blank" rel="noopener">` +
+      `<span class="contact-method__icon" aria-hidden="true">${icon}</span>` +
+      `<span class="contact-method__label">${escapeAttr(s.label)}</span>` +
+      `<span class="contact-method__value">${escapeAttr(s.url)}</span>` +
+      `<span class="ext-arrow" aria-hidden="true">↗</span>` +
+      `</a>`;
+  }).join('');
+}
+
 async function readConfig() {
   const raw = await readFile(CONFIG_PATH, 'utf8');
   return JSON.parse(raw);
@@ -182,6 +198,21 @@ async function buildProjectDetails(data) {
   }
 }
 
+async function buildContact(data) {
+  const ctx = {
+    ...data,
+    contact_socials_html: contactSocialsHtml(data.profile.socials),
+  };
+  const html = await renderPage({
+    template: 'contact',
+    ctx,
+    title: `Contact · ${data.site.title}`,
+    description: data.contact.intro || 'Get in touch.',
+    path: '/contact/',
+  });
+  await writePage('contact/index.html', html);
+}
+
 async function build404(data) {
   const html = await renderPage({
     template: '404',
@@ -223,7 +254,7 @@ function escapeXml(s) {
 }
 
 async function buildSitemap(data) {
-  const urls = ['/', '/writings/', '/projects/']
+  const urls = ['/', '/writings/', '/projects/', '/contact/']
     .concat(data.writings.map(w => `/writings/${w.slug}/`))
     .concat(data.projects.map(p => `/projects/${p.slug}/`))
     .concat(data.tags.filter(t => t.visible_in_filter).map(t => `/writings/tag/${t.slug}/`));
@@ -272,6 +303,7 @@ async function main() {
   await buildWritingDetails(data);
   await buildProjects(data);
   await buildProjectDetails(data);
+  await buildContact(data);
   await build404(data);
   await buildRssFeed(data);
   await buildSitemap(data);
