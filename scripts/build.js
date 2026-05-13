@@ -39,11 +39,8 @@ function escapeAttr(s) {
 function contactSocialsHtml(socials) {
   return socials.map(s => {
     const icon = SOCIAL_ICONS[s.type] || `<span>${s.label[0]}</span>`;
-    return `<a class="contact-method" href="${escapeAttr(s.url)}" target="_blank" rel="noopener">` +
-      `<span class="contact-method__icon" aria-hidden="true">${icon}</span>` +
-      `<span class="contact-method__label">${escapeAttr(s.label)}</span>` +
-      `<span class="contact-method__value">${escapeAttr(s.url)}</span>` +
-      `<span class="ext-arrow" aria-hidden="true">↗</span>` +
+    return `<a class="contact-alt__item" href="${escapeAttr(s.url)}" target="_blank" rel="noopener" aria-label="${escapeAttr(s.label)}">` +
+      `${icon}<span>${escapeAttr(s.label)}</span>` +
       `</a>`;
   }).join('');
 }

@@ -64,11 +64,69 @@
         btn.style.opacity = '0.7';
         btn.disabled = true;
       }
-      // The form will submit naturally if `action` is set. Otherwise, no-op.
       if (!form.action) {
         e.preventDefault();
         if (btn) { btn.disabled = false; btn.style.opacity = ''; }
         alert('Newsletter endpoint not configured.');
+      }
+    });
+  });
+
+  // ---- Contact form: submit to Web3Forms via fetch, inline feedback ----
+  document.querySelectorAll('[data-contact-form] form').forEach(form => {
+    const feedback = form.querySelector('[data-form-feedback]');
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const submitLabel = submitBtn ? submitBtn.querySelector('.contact-form__submit-label') : null;
+
+    function setBusy(busy) {
+      if (!submitBtn) return;
+      submitBtn.disabled = busy;
+      submitBtn.classList.toggle('is-loading', busy);
+      if (submitLabel) submitLabel.textContent = busy ? 'Sending…' : 'Send message';
+    }
+    function showFeedback(kind, message) {
+      if (!feedback) return;
+      feedback.className = `contact-form__feedback contact-form__feedback--${kind}`;
+      feedback.textContent = message;
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // Honeypot — if filled, silently "succeed" without actually sending
+      const honeypot = form.querySelector('input[name="botcheck"]');
+      if (honeypot && honeypot.checked) {
+        showFeedback('success', "Thanks! I'll get back to you soon.");
+        form.reset();
+        return;
+      }
+
+      setBusy(true);
+      showFeedback('', '');
+
+      const data = new FormData(form);
+      // Use "user_subject" (visible field) as the email subject if provided
+      const userSubject = data.get('user_subject');
+      if (userSubject) data.set('subject', userSubject);
+      data.delete('user_subject');
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' },
+        });
+        const json = await res.json().catch(() => ({}));
+        if (res.ok && json.success) {
+          showFeedback('success', json.message || "Thanks! Your message is on its way.");
+          form.reset();
+        } else {
+          showFeedback('error', json.message || `Something went wrong (HTTP ${res.status}). Try emailing me directly.`);
+        }
+      } catch (err) {
+        showFeedback('error', `Network error: ${err.message}. Try emailing me directly.`);
+      } finally {
+        setBusy(false);
       }
     });
   });

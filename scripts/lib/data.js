@@ -154,10 +154,12 @@ export async function loadAllData(config, { forceFallback = false } = {}) {
     desc: settings.newsletter_desc || '',
   };
 
+  const web3formsKey = settings.web3forms_access_key || '';
   const contact = {
     email: settings.contact_email || '',
     intro: settings.contact_intro || '',
-    form_endpoint: settings.contact_form_endpoint || '',
+    web3forms_access_key: web3formsKey,
+    has_form: !!web3formsKey && web3formsKey !== 'YOUR_WEB3FORMS_ACCESS_KEY',
   };
 
   return {
