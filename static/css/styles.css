@@ -146,19 +146,12 @@ a:hover { color: var(--accent); }
   gap: var(--space-4);
   min-height: var(--header-height);
 }
-.site-header__logo {
-  display: inline-flex;
-  align-items: center;
-  font-weight: 600;
-  font-size: 15px;
-  letter-spacing: -0.01em;
-}
-
 .site-nav {
   display: flex;
   align-items: center;
   gap: var(--space-4);
-  margin: 0 auto;
+  flex: 1;
+  justify-content: center;
 }
 .site-nav__link {
   font-size: 14px;
@@ -181,7 +174,6 @@ a:hover { color: var(--accent); }
 .site-header__actions {
   display: flex;
   gap: 8px;
-  margin-left: auto;
 }
 .icon-btn {
   width: 36px;
