@@ -7,11 +7,11 @@
   "publishedBase": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTdmVNmNEOUk0gK8R2fE47WFDsJYJnq0sT-sLI9Af-XvQzC_HnipWWcKwuQvBUBkgmuR0unlriv86mE/pub",
 
   "tabs": {
-    "settings": { "gid": null },
-    "writings": { "gid": null },
-    "projects": { "gid": null },
-    "recommendations": { "gid": null },
-    "tags": { "gid": null },
-    "navigation": { "gid": null }
+    "settings": { "gid": 1235978456 },
+    "writings": { "gid": 1766708454 },
+    "projects": { "gid": 987402055 },
+    "recommendations": { "gid": 1162704247 },
+    "tags": { "gid": 898156368 },
+    "navigation": { "gid": 1421881700 }
   }
 }
