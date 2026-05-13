@@ -182,7 +182,12 @@ async function buildProjects(data) {
 
 async function buildProjectDetails(data) {
   for (const p of data.projects) {
-    const project = { ...p, body_html: '' };
+    if (!p.is_post) continue;  // External-link projects don't get a detail page
+    const project = {
+      ...p,
+      body_html: md(p.body_md),
+      has_actions: !!(p.project_url || p.github_url),
+    };
     const ctx = { ...data, project };
     const html = await renderPage({
       template: 'project',
@@ -262,7 +267,7 @@ function escapeXml(s) {
 async function buildSitemap(data) {
   const urls = ['/', '/writings/', '/projects/', '/contact/']
     .concat(data.writings.map(w => `/writings/${w.slug}/`))
-    .concat(data.projects.map(p => `/projects/${p.slug}/`))
+    .concat(data.projects.filter(p => p.is_post).map(p => `/projects/${p.slug}/`))
     .concat(data.tags.filter(t => t.visible_in_filter).map(t => `/writings/tag/${t.slug}/`));
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

@@ -606,10 +606,21 @@ html[data-theme="dark"] .theme-toggle .icon--moon { display: block; }
   gap: var(--space-6);
 }
 .project-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
+.project-card__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: var(--radius-xl);
+}
+.project-card--linked { cursor: pointer; }
+.project-card--linked:hover .project-card__title { color: var(--accent); }
+.project-card--linked:hover .ext-arrow { color: var(--accent); transform: translate(2px, -2px); }
+.project-card--linked .project-card__github { position: relative; z-index: 2; }
 .project-card__head {
   display: flex;
   align-items: baseline;

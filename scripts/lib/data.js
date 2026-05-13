@@ -61,27 +61,45 @@ export async function loadAllData(config, { forceFallback = false } = {}) {
 
   const projects = raw.projects
     .filter(r => r.id && r.title && r.status === 'published')
-    .map(r => ({
-      id: r.id,
-      status: r.status,
-      slug: r.slug || r.id,
-      title: r.title,
-      description: r.description || '',
-      image_url: r.image_url || '',
-      image_alt: r.image_alt || r.title,
-      gradient_from: r.gradient_from || '#0084FF',
-      gradient_to: r.gradient_to || '#4FB1FF',
-      project_url: r.project_url || '',
-      github_url: r.github_url || '',
-      tech: (r.tech || '').split(',').map(s => s.trim()).filter(Boolean),
-      featured: toBool(r.featured),
-      publish_date: r.publish_date,
-      date_display: formatDate(r.publish_date),
-      date_short: formatDateShort(r.publish_date),
-      year: normalizeYear(r.year, r.publish_date),
-      sort_order: r.sort_order,
-      is_coming_soon: /coming\s*soon/i.test(r.description || ''),
-    }));
+    .map(r => {
+      const body_md = r.body_md || '';
+      const project_url = r.project_url || '';
+      const slug = r.slug || r.id;
+      const is_post = !!body_md.trim();
+      let link = '';
+      let link_external = false;
+      if (is_post) {
+        link = `/projects/${slug}/`;
+      } else if (project_url) {
+        link = project_url;
+        link_external = true;
+      }
+      return {
+        id: r.id,
+        status: r.status,
+        slug,
+        title: r.title,
+        description: r.description || '',
+        body_md,
+        is_post,
+        link,
+        link_external,
+        image_url: r.image_url || '',
+        image_alt: r.image_alt || r.title,
+        gradient_from: r.gradient_from || '#0084FF',
+        gradient_to: r.gradient_to || '#4FB1FF',
+        project_url,
+        github_url: r.github_url || '',
+        tech: (r.tech || '').split(',').map(s => s.trim()).filter(Boolean),
+        featured: toBool(r.featured),
+        publish_date: r.publish_date,
+        date_display: formatDate(r.publish_date),
+        date_short: formatDateShort(r.publish_date),
+        year: normalizeYear(r.year, r.publish_date),
+        sort_order: r.sort_order,
+        is_coming_soon: /coming\s*soon/i.test(r.description || ''),
+      };
+    });
   const projectsSorted = sortByOrder(projects);
 
   const recommendations = sortByOrder(

@@ -1,13 +1,13 @@
 <div class="projects-list">
   {{#each projects}}
-    <article class="project-card{{#if is_coming_soon}} project-card--coming-soon{{/if}}">
+    <article class="project-card{{#if is_coming_soon}} project-card--coming-soon{{/if}}{{#if link}} project-card--linked{{/if}}">
+      {{#if link}}
+        <a class="project-card__overlay" href="{{link}}"{{#if link_external}} target="_blank" rel="noopener"{{/if}} aria-label="{{title}}"></a>
+      {{/if}}
+
       <div class="project-card__head">
         <h3 class="project-card__title">
-          {{#if project_url}}
-            <a href="{{project_url}}" target="_blank" rel="noopener">{{title}}<span class="ext-arrow" aria-hidden="true">↗</span></a>
-          {{else}}
-            <span>{{title}}</span>
-          {{/if}}
+          {{title}}{{#if link_external}}<span class="ext-arrow" aria-hidden="true">↗</span>{{/if}}
         </h3>
         {{#if date_short}}<time class="project-card__date" datetime="{{publish_date}}">{{date_short}}</time>{{/if}}
       </div>

@@ -19,22 +19,28 @@
     {{/if}}
   </div>
 
-  <div class="project-detail__body prose">
-    <p>{{project.description}}</p>
-  </div>
+  {{#if project.description}}
+    <p class="writing-detail__lede">{{project.description}}</p>
+  {{/if}}
 
-  <div class="project-detail__actions">
-    {{#if project.project_url}}
-      <a class="btn btn--accent" href="{{project.project_url}}" target="_blank" rel="noopener">Visit project ↗</a>
-    {{/if}}
-    {{#if project.github_url}}
-      <a class="btn btn--ghost" href="{{project.github_url}}" target="_blank" rel="noopener">View source ↗</a>
-    {{/if}}
-  </div>
+  {{#if project.body_html}}
+    <div class="project-detail__body prose">
+      {{{project.body_html}}}
+    </div>
+  {{/if}}
+
+  {{#if project.has_actions}}
+    <div class="project-detail__actions">
+      {{#if project.project_url}}
+        <a class="btn btn--accent" href="{{project.project_url}}" target="_blank" rel="noopener">Visit project ↗</a>
+      {{/if}}
+      {{#if project.github_url}}
+        <a class="btn btn--ghost" href="{{project.github_url}}" target="_blank" rel="noopener">View source ↗</a>
+      {{/if}}
+    </div>
+  {{/if}}
 
   <nav class="writing-detail__nav" aria-label="More projects">
     <a class="btn btn--ghost" href="/projects/">← All projects</a>
   </nav>
 </article>
-
-{{> _newsletter}}
