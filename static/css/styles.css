@@ -149,20 +149,9 @@ a:hover { color: var(--accent); }
 .site-header__logo {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
   font-weight: 600;
   font-size: 15px;
   letter-spacing: -0.01em;
-}
-.logo-mark {
-  display: inline-flex;
-  width: 26px;
-  height: 26px;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background: var(--accent);
-  color: white;
 }
 
 .site-nav {
@@ -1183,21 +1172,6 @@ html[data-theme="dark"] .contact-form__feedback--error { color: #FCA5A5; }
   gap: 14px;
 }
 .site-footer__link:hover { color: var(--text); }
-.back-to-top {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: 1px solid var(--border);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-muted);
-  transition: color .15s, background .15s, transform .15s;
-}
-.back-to-top:hover {
-  color: var(--accent);
-  transform: translateY(-2px);
-}
 
 /* -------- Print -------- */
 @media print {

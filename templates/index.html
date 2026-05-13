@@ -24,16 +24,6 @@
   {{/if}}
 </section>
 
-{{#if recommendations.length}}
-<section class="section">
-  <header class="section-header">
-    <span class="section-header__icon" aria-hidden="true">⭐</span>
-    <h2 class="section-header__title">Recommendations</h2>
-  </header>
-  {{{recommendations_html}}}
-</section>
-{{/if}}
-
 {{#if projects.length}}
 <section class="section">
   <header class="section-header">
@@ -46,5 +36,15 @@
       <a class="btn btn--accent" href="/projects/">All projects</a>
     </div>
   {{/if}}
+</section>
+{{/if}}
+
+{{#if recommendations.length}}
+<section class="section">
+  <header class="section-header">
+    <span class="section-header__icon" aria-hidden="true">⭐</span>
+    <h2 class="section-header__title">Recommendations</h2>
+  </header>
+  {{{recommendations_html}}}
 </section>
 {{/if}}

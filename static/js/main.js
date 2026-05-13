@@ -37,14 +37,6 @@
     });
   }
 
-  // ---- Back-to-top ----
-  const backBtn = document.querySelector('[data-back-to-top]');
-  if (backBtn) {
-    backBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
-
   // ---- Mark current nav link ----
   const here = window.location.pathname.replace(/\/index\.html$/, '/');
   document.querySelectorAll('.site-nav__link').forEach(a => {
